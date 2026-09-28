@@ -1,13 +1,29 @@
-body{
+* {
+    box-sizing: border-box;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
+    background-color: #f5f5f5;
+    color: #222;
 }
+
 header {
     background-color: #43a4be;
-    color:white;
+    color: white;
     padding: 20px;
     text-align: center;
 }
+
+header h1 {
+    margin: 0;
+}
+
 nav {
     background-color: #333;
     padding: 15px;
@@ -21,52 +37,68 @@ nav ul {
     justify-content: center;
     gap: 20px;
 }
+
 nav a {
     color: white;
     text-decoration: none;
     font-weight: bold;
 }
+
 nav a:hover {
     text-decoration: underline;
 }
 
 main {
+    width: 100%;
     max-width: 1000px;
     margin: 0 auto;
-    padding:40px 20px;
+    padding: 40px 20px;
 }
-main  > section:first-child {
+
+main > section {
+    margin-bottom: 40px;
+}
+
+main > section:first-child {
     padding: 30px 28px;
     text-align: center;
 }
-main h1 {
-    font-size: 36px;
-    margin-bottom: 15px;
+
+main h2 {
+    margin-top: 0;
 }
+
 main p {
     font-size: 18px;
     line-height: 1.6;
 }
-main > section img{
+
+main > section img {
+    display: block;
     max-width: 900px;
-    height: 480px;
-    object-fit: cover;
     width: 100%;
+    height: 480px;
+    margin: 20px auto 0;
+    object-fit: cover;
+    border-radius: 8px;
 }
+
 main > section:nth-child(2) {
     text-align: center;
 }
 
 main > section:nth-child(2) > div {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 20px;
 }
+
 main > section:nth-child(2) article {
     background-color: white;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    min-height: 150px;
 }
 
 main > section:nth-child(2) > h2 {
@@ -80,10 +112,6 @@ main > section:nth-child(2) > p {
     margin-bottom: 30px;
 }
 
-main > section:nth-child(2) article {
-    min-height: 150px;
-}
-
 main > section:nth-child(2) article h3 {
     margin-top: 0;
     font-size: 22px;
@@ -94,20 +122,14 @@ footer {
     color: white;
     padding: 20px;
     margin-top: 40px;
+    text-align: center;
 }
 
 .destinos {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 25px;
 }
-
-.destinos article img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 8px;
-} 
 
 .destinos article {
     background-color: white;
@@ -116,16 +138,25 @@ footer {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
+.destinos article img {
+    display: block;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
 .destinos article h3 {
     font-size: 22px;
     margin-bottom: 10px;
 }
 
 .destinos article p {
-    margin: 0;
+    margin: 0 0 15px;
 }
 
-.destinos article a {
+.destinos article a,
+main > section:last-child a {
     display: inline-block;
     background-color: #0b3d5c;
     color: white;
@@ -135,8 +166,157 @@ footer {
     font-weight: bold;
 }
 
-.destinos article a:hover {
+.destinos article a:hover,
+main > section:last-child a:hover {
     background-color: #082f49;
 }
 
+/* Contato */
+main > section:nth-child(2) > article {
+    margin-bottom: 20px;
+}
 
+/* Tablets */
+@media (max-width: 768px) {
+    header {
+        padding: 18px 15px;
+    }
+
+    header h1 {
+        font-size: 30px;
+    }
+
+    nav {
+        padding: 12px 10px;
+    }
+
+    nav ul {
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    main {
+        padding: 30px 15px;
+    }
+
+    main > section:first-child {
+        padding: 20px 10px;
+    }
+
+    main p {
+        font-size: 17px;
+    }
+
+    main > section img {
+        height: 360px;
+    }
+
+    main > section:nth-child(2) > div,
+    .destinos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Celulares */
+@media (max-width: 600px) {
+    header {
+        padding: 16px 12px;
+    }
+
+    header h1 {
+        font-size: 26px;
+    }
+
+    nav {
+        padding: 12px 8px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    nav li {
+        width: 100%;
+        text-align: center;
+    }
+
+    nav a {
+        display: block;
+        padding: 5px;
+    }
+
+    main {
+        padding: 25px 12px;
+    }
+
+    main > section {
+        margin-bottom: 30px;
+    }
+
+    main > section:first-child {
+        padding: 15px 5px;
+    }
+
+    main h2 {
+        font-size: 25px;
+    }
+
+    main > section:nth-child(2) > h2 {
+        font-size: 27px;
+    }
+
+    main p {
+        font-size: 16px;
+    }
+
+    main > section img {
+        height: 250px;
+        border-radius: 6px;
+    }
+
+    main > section:nth-child(2) > div,
+    .destinos {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    main > section:nth-child(2) article,
+    .destinos article {
+        padding: 18px;
+    }
+
+    .destinos article img {
+        height: 210px;
+    }
+
+    footer {
+        padding: 18px 12px;
+    }
+
+    footer p {
+        font-size: 14px;
+        margin: 0;
+    }
+}
+
+/* Celulares muito pequenos */
+@media (max-width: 380px) {
+    header h1 {
+        font-size: 23px;
+    }
+
+    main {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    main > section img {
+        height: 210px;
+    }
+
+    .destinos article img {
+        height: 180px;
+    }
+}
